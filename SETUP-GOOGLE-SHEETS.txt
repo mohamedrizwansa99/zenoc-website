@@ -1,0 +1,39 @@
+ZENOC WEBSITE — GOOGLE SHEETS CONTACT FORM
+
+FILES
+- index.html, capabilities.html, about.html: the three website pages
+- styles.css: visual design
+- script.js: navigation and form submission
+- zenoc-logo.png: supplied ZENOC logo
+- Code.gs: Google Apps Script endpoint for Google Sheets
+
+CONNECT THE FORM
+1. Create/open the Google Sheet where enquiries should be stored.
+2. In that sheet, select Extensions > Apps Script.
+3. Copy the full contents of Code.gs into the Apps Script editor and Save.
+4. Select Deploy > New deployment > Web app.
+5. Set "Execute as" to Me and "Who has access" to Anyone, then Deploy.
+   Google may ask you to authorize the script.
+6. Copy the deployed Web app URL (it ends in /exec).
+7. Open script.js and replace:
+   PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
+   with your Web app URL, keeping the quotation marks.
+8. Upload/redeploy the website files to your hosting provider.
+
+SHEET COLUMNS
+Submitted At | Name | Email | Service | Project Details
+
+The script creates a tab named "Enquiries" and adds the header row automatically.
+Keep the spreadsheet private. The public web app endpoint accepts form submissions;
+do not put private spreadsheet credentials or API keys in the website code.
+
+NOTE
+The browser uses no-cors for the Apps Script POST. The page can show that the request
+was sent, but cannot read Google's response to independently confirm the row write.
+Test by submitting a sample enquiry and checking the Enquiries tab.
+
+
+USER-PROVIDED DEPLOYMENT URL
+The supplied Google Apps Script Web App URL has already been inserted into script.js.
+The supplied Apps Script Library URL is not the form submission endpoint; the /exec
+Web App URL is the one used by the website.
