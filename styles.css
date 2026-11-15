@@ -59,3 +59,22 @@ h1,h2,h3,.brand,.button,.nav{font-family:var(--display)}
 .step-icon .step-material-icon{font-size:32px}
 .capability-symbol .material-symbols-rounded{font-size:62px}
 @media(max-width:760px){.capability-symbol .material-symbols-rounded{font-size:48px}}
+
+
+/* Even service cards and a genuinely seamless, continuously moving ticker */
+.cap-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.cap-card{min-width:0;min-height:290px;height:100%;padding:28px 30px;display:grid;grid-template-rows:auto 1fr auto;align-content:stretch;gap:18px}
+.cap-card h3{align-self:center;margin:0;font-size:clamp(22px,2vw,27px)}
+.cap-card p{align-self:end;max-width:250px;padding-right:28px}
+.cap-card .card-arrow{right:28px;bottom:25px}
+.cap-light{background:#d7dbe0;color:#111820}
+.cap-light p,.cap-light .card-no{color:#66717d}
+.ticker{overflow:hidden;width:100%;background:#323740;color:#fff;padding:19px 0;white-space:nowrap}
+.ticker-track{display:flex;width:max-content;will-change:transform;animation:zenocTicker 28s linear infinite}
+.ticker-group{display:flex;flex:0 0 auto;align-items:center;gap:34px;padding-right:34px;font:11px var(--mono);font-weight:500;letter-spacing:2px}
+.ticker-group b{font-size:15px;font-weight:400;color:#cbd1da;margin:0}
+@keyframes zenocTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+@media(max-width:760px){.cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cap-card{min-height:260px}}
+@media(max-width:520px){.cap-grid{grid-template-columns:1fr}.cap-card{min-height:230px;padding:24px}.ticker{padding:16px 0}.ticker-group{gap:22px;padding-right:22px;font-size:10px}}
